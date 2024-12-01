@@ -39,3 +39,24 @@
 .read-the-docs {
   color: #888;
 }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f7fc;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  color: #2e3b4e;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

@@ -1,0 +1,27 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #2e3b4e;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    font-size: 1.8rem;
+}
+
+.navbar a {
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 10px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
