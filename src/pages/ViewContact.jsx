@@ -1,6 +1,6 @@
 import { doc, deleteDoc } from "firebase/firestore";
 import { useNavigate, useParams } from "react-router-dom";
-import { db } from "../db";
+import { db } from "../utils/db";
 
 const ViewContact = () => {
     const { id } = useParams();

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { db } from "../db";  // Assuming db.js has Firebase initialization
+import { db } from "../utils/db";  // Assuming db.js has Firebase initialization
 import { doc, setDoc, updateDoc, getDoc } from "firebase/firestore";
 import './ContactForm.css';
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { doc, getDoc, deleteDoc } from "firebase/firestore";
-import { db } from "../db";
+import { db } from "../utils/db";
 import { useParams, useHistory } from "react-router-dom";
 import './ContactDetails.css';
 

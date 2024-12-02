@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../db"; // Make sure this is the correct path for your Firebase config
+import { db } from "../utils/db"; // Make sure this is the correct path for your Firebase config
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import './ContactList.css'; // Make sure to import the CSS

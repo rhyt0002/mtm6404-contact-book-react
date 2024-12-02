@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../db";
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { db } from "../utils/db";
 
 const Home = () => {
     const [contacts, setContacts] = useState([]);
