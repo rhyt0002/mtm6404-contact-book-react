@@ -7,6 +7,7 @@ import AddContact from "./pages/AddContact";
 import EditContact from "./pages/EditContact";
 import ViewContact from "./pages/ViewContact";
 import Navbar from "./components/Navbar";
+import UpdateContact from './components/UpdateContact';
 
 import './App.css';
 

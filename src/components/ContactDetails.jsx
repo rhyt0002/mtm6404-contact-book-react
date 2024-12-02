@@ -1,9 +1,10 @@
+// ContactDetails.jsx
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
-const ContactDetails = ({ Contacts }) => {
+const ContactDetails = ({ contacts }) => {
     const { id } = useParams();
-    const contact = Contacts.find(c => c.id === parseInt(id));
+    const contact = contacts.find(c => c.id === parseInt(id));
 
     if (!contact) {
         return <div>Contact not found</div>;
@@ -11,10 +12,9 @@ const ContactDetails = ({ Contacts }) => {
 
     return (
         <div>
-            <h2>{contact.name}</h2>
+            <h2>{contact.firstName} {contact.lastName}</h2>
             <p>Email: {contact.email}</p>
-            <p>Phone: {contact.phone}</p>
-            {/* Add more details as needed */}
+            <Link to={`/contact/update/${contact.id}`}>Update Contact</Link>
         </div>
     );
 };
