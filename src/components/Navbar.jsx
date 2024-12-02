@@ -1,11 +1,14 @@
-import React from "react";
-const Navbar = () => {
+const Navbar = ({ setSearch }) => {
     return (
-        <nav>
-            <h1>Contact Book</h1>
-            {/* Add navigation links here */}
-        </nav>
+      <nav>
+        <h1>Contact Book</h1>
+        <input
+          type="text"
+          placeholder="Search contacts..."
+          onChange={e => setSearch(e.target.value)}
+        />
+      </nav>
     );
-};
-
-export default Navbar;
+  };
+  
+  export default Navbar;

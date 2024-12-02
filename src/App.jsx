@@ -8,20 +8,11 @@ import EditContact from "./pages/EditContact";
 import ViewContact from "./pages/ViewContact";
 import Navbar from "./components/Navbar";
 
+import './App.css';
 
-import './App.css'
-
-
-const Contactcard = ({ id, firstName, lastName, email }) => {
-  return (
-    <div className="contact-card">
-      <h2>{`${firstName} ${lastName}`}</h2>
-      <p>Email: {email}</p>
-    </div>
-  )
-}
 function App() {
   const [Contacts, setContacts] = useState([]);
+  const [search, setSearch] = useState("");
 
   const fetchContacts = async () => {
     const docsSnapshot = await getDocs(collection(db, "Contacts"));
@@ -29,27 +20,30 @@ function App() {
       id: doc.id,
       ...doc.data(),
     }));
-    setContacts(data);
+    setContacts(data.sort((a, b) => a.lastName.localeCompare(b.lastName)));
   };
 
   useEffect(() => {
     fetchContacts();
-  })
-  console.log(Contacts);
-  return (
-    <>
-    {Contacts.map((contact) => (
-      <Contactcard
-      key={contact.id}
-      id={contact.id}
-      firstName={contact.firstName}
-      lastName={contact.lastName}
-      email={contact.email}
-    />
-    ))}
-      </>
-  )
+  }, []);
 
+  const filteredContacts = Contacts.filter(contact =>
+    `${contact.firstName} ${contact.lastName}`
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
+  
+  return (
+    <Router>
+      <Navbar setSearch={setSearch} />
+      <Routes>
+        <Route path="/" element={<Home contacts={filteredContacts} />} />
+        <Route path="/add" element={<AddContact fetchContacts={fetchContacts} />} />
+        <Route path="/edit/:id" element={<EditContact fetchContacts={fetchContacts} />} />
+        <Route path="/view/:id" element={<ViewContact />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
